@@ -3,6 +3,7 @@ import Table from "../components/Table";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 
+// Defined user data-type by manually typing data-type by with the help of response from api.
 export interface User {
   id: number;
   name: string;
@@ -22,9 +23,13 @@ export default function HomePage() {
     error,
   } = useFetch<User[]>("https://jsonplaceholder.typicode.com/users");
 
+  //Manages loading state and renders a loader
+
   if (loading) {
     return <Loader />;
   }
+
+  //Exception handling in case of errors.
 
   if (error) {
     return (
@@ -34,6 +39,7 @@ export default function HomePage() {
     );
   }
 
+  //Render's the landing page
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">

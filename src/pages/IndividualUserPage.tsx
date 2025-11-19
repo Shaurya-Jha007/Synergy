@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 
+//Defined UserDetails data-type.
+
 interface UserDetails {
   id: number;
   name: string;
@@ -40,6 +42,7 @@ export default function IndividualUserPage() {
     fetchUser(userId);
   }, [userId]);
 
+  //Renders UI for individual user.
   if (details) {
     return (
       <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -103,5 +106,6 @@ export default function IndividualUserPage() {
       </div>
     );
   }
+  //Simulates loading state.
   return <Loader />;
 }

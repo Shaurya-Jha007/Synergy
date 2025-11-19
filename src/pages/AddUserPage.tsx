@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function AddUserPage() {
   const navigate = useNavigate();
 
+  // States for handling loading, error, success and formData.
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -18,6 +19,8 @@ export default function AddUserPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError("");
   };
+
+  //This handleSubmit funciton simulates the user's addition through a post request to the endpoint.
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,11 +43,11 @@ export default function AddUserPage() {
       if (!response.ok) throw new Error("Network error");
 
       const newUser = await response.json();
-      console.log("Simulated new user:", newUser); // { id: 11, name: "...", ... }
+      console.log("Simulated new user:", newUser);
 
       setSuccess(true);
       setTimeout(() => {
-        navigate("/"); // Go back to home
+        navigate("/"); // Home navigation
       }, 1800);
     } catch (err) {
       setError(`Failed to add user. Please try again. ${err}`);
@@ -53,6 +56,7 @@ export default function AddUserPage() {
     }
   };
 
+  // UI for Adding user.
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
       <div className="max-w-md mx-auto">
@@ -130,7 +134,7 @@ export default function AddUserPage() {
               </button>
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading} //Made the button disable after a single click
                 className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold shadow-lg hover:from-blue-700 hover:to-indigo-700 transition flex items-center justify-center gap-2"
               >
                 {loading ? (

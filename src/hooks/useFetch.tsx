@@ -1,6 +1,8 @@
 // hooks/useFetch.ts
 import { useState, useEffect } from "react";
 
+// Custom useFetch hook for fetching user's data from the api.
+
 function useFetch<T>(url: string) {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
