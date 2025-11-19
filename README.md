@@ -58,7 +58,7 @@ src/
 ## How to Run Locally
 
 # Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Shaurya-Jha007/Synergy
 cd your-repo-name
 
 # Install dependencies
