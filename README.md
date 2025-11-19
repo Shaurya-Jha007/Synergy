@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# User Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive **CRUD (Create, Read, Update, Delete)** application built with **React + Vite + React Router + Tailwind CSS**.  
+Uses **[JSONPlaceholder](https://jsonplaceholder.typicode.com)** as a fake REST API to simulate full backend functionality.
 
-Currently, two official plugins are available:
+## Live Demo
+(https://synergy-7aa8f.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **View All Users** – Responsive table (desktop) & cards (mobile)
+- **User Detail Page** – Click email to view full profile
+- **Add New User** – Clean form with POST simulation
+- **Edit User** – Beautiful modal with pre-filled values + PUT request
+- **Delete User** – Confirmation + DELETE request simulation
+- **Fully Responsive** – Perfect on phones, tablets, and desktops
+- **No Backend Needed** – 100% frontend with simulated API
+- **Clean & Modern UI** – Powered by Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Technology         | Purpose                          |
+|--------------------|----------------------------------|
+| React              | Component-based UI               |
+| Vite               | Fast dev server & build tool     |
+| React Router v6    | Client-side routing              |
+| Tailwind CSS       | Utility-first styling            |
+| JSONPlaceholder    | Fake REST API for CRUD           |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+src/
+├── components/
+│   ├── Table.tsx              → User list + Edit/Delete modal
+│   ├── Loader.tsx             → Loading spinner
+│   └── ...
+├── pages/
+│   ├── HomePage.tsx           → Main users directory
+│   ├── AddUserPage.tsx        → Add user form
+│   └── IndividualUserPage.tsx → User detail view
+├── hooks/
+│   └── useFetch.ts            → Custom API hook
+├── App.tsx                    → All routes
+└── main.tsx                   → Entry point
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## API Endpoints (Simulated)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Action       | Method | URL                          | Response                          |
+|------------|--------|------------------------------|-----------------------------------|
+| Get Users  | GET    | `/users`                     | List of 10 users                  |
+| Get User   | GET    | `/users/:id`                 | Single user details               |
+| Add User   | POST   | `/users`                     | Returns data + `id: 11`           |
+| Update     | PUT    | `/users/:id`                 | Returns updated user              |
+| Delete     | DELETE | `/users/:id`                 | Returns `{}` (success)            |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> All changes are simulated — data resets on refresh.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## How to Run Locally
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Clone the repository
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
