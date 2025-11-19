@@ -47,7 +47,7 @@ export default function AddUserPage() {
         navigate("/"); // Go back to home
       }, 1800);
     } catch (err) {
-      setError("Failed to add user. Please try again.", err);
+      setError(`Failed to add user. Please try again. ${err}`);
     } finally {
       setLoading(false);
     }

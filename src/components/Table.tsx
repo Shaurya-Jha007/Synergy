@@ -1,5 +1,6 @@
 // components/Table.tsx
 import type { User } from "../pages/HomePage";
+import { Link } from "react-router-dom";
 
 interface TableProps {
   users: User[];
@@ -63,10 +64,10 @@ export default function Table({ users }: TableProps) {
                   {user.name}
                 </td>
                 <td className="py-4 px-6 text-sm text-gray-600 hidden sm:table-cell">
-                  @{user.username}
+                  {user.username}
                 </td>
                 <td className="py-4 px-6 text-sm text-blue-600 underline">
-                  <a href={`mailto:${user.email}`}>{user.email}</a>
+                  <Link to={`/user/${user.id}`}>{user.email}</Link>
                 </td>
 
                 {/* Edit Button */}

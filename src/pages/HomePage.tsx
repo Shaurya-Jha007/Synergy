@@ -1,6 +1,7 @@
 import useFetch from "../hooks/useFetch";
 import Table from "../components/Table";
 import { Link } from "react-router-dom";
+import Loader from "../components/Loader";
 
 export interface User {
   id: number;
@@ -22,11 +23,7 @@ export default function HomePage() {
   } = useFetch<User[]>("https://jsonplaceholder.typicode.com/users");
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-blue-600"></div>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {
