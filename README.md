@@ -59,7 +59,8 @@ src/
 
 # Clone the repository
 git clone https://github.com/Shaurya-Jha007/Synergy
-cd your-repo-name
+
+cd synergy
 
 # Install dependencies
 npm install
